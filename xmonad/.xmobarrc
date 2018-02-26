@@ -1,0 +1,19 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+        , borderColor = "black"
+        , border = TopB
+        , bgColor = "black"
+        , fgColor = "grey"
+        , position = BottomW L 100
+        , commands = [    Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                        , Run Memory ["-t","Mem: <usedratio>%"] 10
+                        , Run Swap [] 10
+                        , Run Com "/home/benko_balog/.xmonad/get-volume.sh" [] "myVolume" 1
+                        , Run Kbd [("us", "US"), ("hu(qwerty)", "HU")]
+                        , Run Date "%H:%M:%S" "date1" 10
+                        , Run Date "%Y %b %_d" "date2" 10
+                        , Run StdinReader
+                        ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = "%StdinReader% | %memory% * %swap% | %cpu% }{ %kbd% %myVolume%  <fc=#ff6633>%date2%</fc> <fc=#99ff33>%date1%</fc>"
+        }
