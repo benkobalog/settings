@@ -17,7 +17,7 @@ main = do
             , ppTitle = xmobarColor "green" "" . shorten 50
             }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        , startupHook = setWMName "LG3D" <+> spawn "python3 ~/.xmonad/autostart.py"
+        , startupHook = setWMName "LG3D" <+> spawn "python3 ~/.xmonad/autostart.py" <+> spawn "setxkbmap -layout 'us,hu(qwerty)' -option 'grp:alt_shift_toggle'"
         , focusedBorderColor = "#66ffff"
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; xset dpms force off")
